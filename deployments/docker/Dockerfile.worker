@@ -11,7 +11,7 @@ const rand = (min, max) => Math.random() * (max - min) + min;
 const randInt = (min, max) => Math.floor(rand(min, max));
 const randChoice = (arr) => arr[randInt(0, arr.length)];
 
-// 🎨 Scene-inspired palettes
+// Scene-inspired palettes
 const PALETTES = {
   sunset: ["#FDCB82", "#FBAF5C", "#F05A28", "#D7263D", "#632A50"],
   ocean: ["#001F54", "#034078", "#1282A2", "#F0F3BD", "#FFBF69"],
@@ -103,7 +103,7 @@ function generateBeautifulSVG(width = 800, height = 600, paletteName, palette) {
   return svg;
 }
 
-// 💡 Generate unique sets
+//Generate unique sets
 const paletteNames = Object.keys(PALETTES);
 const COUNT = paletteNames.length; // one per palette
 
@@ -113,4 +113,4 @@ for (let i = 0; i < COUNT; i++) {
   fs.writeFileSync(path.join(OUTPUT_DIR, `art_${i + 1}_${name}.svg`), svg);
 }
 
-console.log(`✅ Generated ${COUNT} unique-color abstract images in ./outputs`);
+console.log(`Generated ${COUNT} unique-color abstract images in ./outputs`);

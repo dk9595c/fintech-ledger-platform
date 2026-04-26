@@ -1,0 +1,15 @@
+CREATE TABLE accounts (
+    id VARCHAR(50) PRIMARY KEY,
+    balance DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE ledger (
+    id SERIAL PRIMARY KEY,
+    previous_hash VARCHAR(64) NOT NULL,
+    tx_data TEXT NOT NULL,
+    hash VARCHAR(64) NOT NULL UNIQUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_ledger_hash ON ledger(hash);
